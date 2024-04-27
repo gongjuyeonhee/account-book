@@ -1,0 +1,14 @@
+select {
+  font-size: 0.9rem;
+  padding: 2px 5px;
+}
+
+.form-input-box {
+  border: 1px solid grey;
+  width: 600px; /* 너비 조절 */
+  height: 250px; /* 높이 조절 */
+}
+
+.box {
+  margin: 10px;
+}
