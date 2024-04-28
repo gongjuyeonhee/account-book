@@ -1,0 +1,6 @@
+div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* 요소를 수직으로 가운데 정렬합니다. */
+  margin-bottom: 10px; /* 각 행 사이의 간격을 조정합니다. */
+}
