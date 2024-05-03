@@ -9,7 +9,7 @@ const Forminput = () => {
     itemType: "",
     purchaseDay: null,
     memo: "",
-    reOrder: true,
+    reOrder: null,
   });
 
   const nameChangeHandler = (e) => {
@@ -24,6 +24,21 @@ const Forminput = () => {
 
   const typeChangeHandler = (e) => {
     setItemState((prevState) => ({ ...prevState, itemType: e.target.value }));
+  };
+
+  const dayChangeHandler = (e) => {
+    setItemState((prevState) => ({
+      ...prevState,
+      purchaseDay: e.target.value,
+    }));
+  };
+
+  const memoChangeHandler = (e) => {
+    setItemState((prevState) => ({ ...prevState, memo: e.target.value }));
+  };
+
+  const reOrderChangeHandler = (e) => {
+    setItemState((prevState) => ({ ...prevState, reOrder: e.target.value }));
   };
 
   return (
@@ -62,20 +77,29 @@ const Forminput = () => {
       </div>
       <div className="box">
         <label for="date">구입날짜: </label>
-        <input type="date"></input>
+        <input
+          type="date"
+          value={itemState.purchaseDay}
+          onChange={dayChangeHandler}
+        ></input>
       </div>
       <div className="box">
         <label for="memo">
           메모: <label for="memo-check">메모 작성</label>
           <input type="checkbox"></input>
         </label>
-        <input type="text" required />
+        <input
+          type="text"
+          value={itemState.memo}
+          onChange={memoChangeHandler}
+          required
+        />
       </div>
       <div className="box">
         <label for="re-order">재구매 의사</label>
-        <input type="radio" value="yes" />
+        <input type="radio" value={true} onChange={reOrderChangeHandler} />
         <label for="yes">yes</label>
-        <input type="radio" value="no" />
+        <input type="radio" value={false} onChange={reOrderChangeHandler} />
         <label for="yes">no</label>
       </div>
 
