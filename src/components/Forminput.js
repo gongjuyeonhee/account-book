@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Forminput.css";
 
 //이름, 가격, 유형, 구입날자, 메모, 재구매의사
-const Forminput = () => {
+const Forminput = ({ getForminputData }) => {
   const [itemState, setItemState] = useState({
     name: "",
     price: 0,
@@ -33,7 +33,8 @@ const Forminput = () => {
 
   const buttonSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(itemState);
+
+    getForminputData(itemState);
 
     setItemState({
       name: "",
