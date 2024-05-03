@@ -14,12 +14,10 @@ const Forminput = () => {
 
   const nameChangeHandler = (e) => {
     setItemState((prevState) => ({ ...prevState, name: e.target.value }));
-    console.log(itemState.name);
   };
 
   const priceChangeHandler = (e) => {
     setItemState((prevState) => ({ ...prevState, price: e.target.value }));
-    console.log(itemState.price);
   };
 
   const typeChangeHandler = (e) => {
@@ -33,6 +31,20 @@ const Forminput = () => {
     }));
   };
 
+  const buttonSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log(itemState);
+
+    setItemState({
+      name: "",
+      price: 0,
+      itemType: "",
+      purchaseDay: null,
+      memo: "",
+      reOrder: null,
+    });
+  };
+
   const memoChangeHandler = (e) => {
     setItemState((prevState) => ({ ...prevState, memo: e.target.value }));
   };
@@ -42,7 +54,7 @@ const Forminput = () => {
   };
 
   return (
-    <form className="form-input-box">
+    <form className="form-input-box" onSubmit={buttonSubmitHandler}>
       <div className="box">
         <label for="name">이름: </label>
         <input
@@ -97,13 +109,23 @@ const Forminput = () => {
       </div>
       <div className="box">
         <label for="re-order">재구매 의사</label>
-        <input type="radio" value={true} onChange={reOrderChangeHandler} />
+        <input
+          type="radio"
+          name="reorder" //라디오 타입에서 name에 똑같은 이름을 부여할 경우 이 중에 하나만 선택할 수 있게됨. 이거 없으면 둘다 선택됨
+          value={true}
+          onChange={reOrderChangeHandler}
+        />
         <label for="yes">yes</label>
-        <input type="radio" value={false} onChange={reOrderChangeHandler} />
+        <input
+          type="radio"
+          name="reorder" //이번 프로젝트에서 name 무조건 부여해야함.
+          value={false}
+          onChange={reOrderChangeHandler}
+        />
         <label for="yes">no</label>
       </div>
 
-      <input type="submit" value="등록" />
+      <button type="submit">등록</button>
     </form>
   );
 };
