@@ -1,9 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 import Forminput from "./components/Forminput";
 import TypeFilter from "./components/TypeFilter";
 
 function App() {
-  const goods = [
+  const [goods, setGoods] = useState([
     {
       id: "1",
       name: "아샷추",
@@ -13,10 +14,20 @@ function App() {
       memo: "맛있어요",
       reOrder: true,
     },
-  ];
+  ]);
 
   const getForminputData = (data) => {
-    console.log(data);
+    setGoods([
+      {
+        id: Math.random().toString(),
+        name: data.name,
+        price: data.price,
+        itemType: data.itemType,
+        purchaseDay: data.purchaseDay,
+        memo: data.memo,
+        reOrder: data.reOrder,
+      },
+    ]);
   };
 
   return (
