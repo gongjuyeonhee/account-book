@@ -1,10 +1,16 @@
 import React from "react";
 import "./ExpenseItem.css";
+import ExpenseDate from "./ExpenseDay";
 
 const ExpenseItem = (props) => {
   return (
     <div className="item-box">
-      <h2>{props.name}</h2>
+      <p>{props.name}</p>
+      <p>{props.price}</p>
+      <p>{props.itemType}</p>
+      <ExpenseDate date={props.purchaseDay} />
+      <p>{props.memo}</p>
+      <p>{props.reOrder ? "강추" : "비추"}</p>
     </div>
   );
 };

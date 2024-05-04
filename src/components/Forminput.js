@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import "./Forminput.css";
 
 //이름, 가격, 유형, 구입날자, 메모, 재구매의사
+//구입날짜 범위 넣어주기
 const Forminput = ({ getForminputData }) => {
   const [itemState, setItemState] = useState({
     name: "",
     price: 0,
     itemType: "",
-    purchaseDay: null,
+    purchaseDay: new Date(),
     memo: "",
-    reOrder: true,
+    reOrder: "",
   });
 
   const nameChangeHandler = (e) => {
@@ -34,15 +35,17 @@ const Forminput = ({ getForminputData }) => {
   const buttonSubmitHandler = (e) => {
     e.preventDefault();
 
+    console.log(itemState.reOrder);
+
     getForminputData(itemState);
 
     setItemState({
       name: "",
       price: 0,
       itemType: "",
-      purchaseDay: null,
+      purchaseDay: new Date(),
       memo: "",
-      reOrder: true,
+      reOrder: "",
     });
   };
 
@@ -113,15 +116,14 @@ const Forminput = ({ getForminputData }) => {
         <input
           type="radio"
           name="reorder"
-          value={true}
+          value="true"
           onChange={reOrderChangeHandler}
-          checked
         />
         <label for="yes">yes</label>
         <input
           type="radio"
           name="reorder"
-          value={false}
+          value="false"
           onChange={reOrderChangeHandler}
         />
         <label for="yes">no</label>
