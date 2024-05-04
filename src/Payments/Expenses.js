@@ -6,7 +6,7 @@ const Expenses = (props) => {
   return (
     <div className="list-box">
       {props.items.map((item) => (
-        <ExpenseItem name={item.name} />
+        <ExpenseItem key={item.id} name={item.name} />
       ))}
     </div>
   );

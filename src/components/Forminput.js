@@ -33,7 +33,7 @@ const Forminput = ({ getForminputData }) => {
 
   const buttonSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(typeof itemState.reOrder);
+
     getForminputData(itemState);
 
     setItemState({
