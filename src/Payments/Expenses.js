@@ -1,9 +1,10 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
+import "./Expenses.css";
 
 const Expenses = (props) => {
   return (
-    <div>
+    <div className="list-box">
       {props.items.map((item) => (
         <ExpenseItem name={item.name} />
       ))}

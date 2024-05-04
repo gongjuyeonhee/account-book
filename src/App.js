@@ -28,6 +28,7 @@ function App() {
         memo: data.memo,
         reOrder: data.reOrder,
       },
+      ...goods,
     ]);
   };
 

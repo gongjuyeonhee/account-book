@@ -1,0 +1,6 @@
+.list-box {
+  margin: 10px 5px 10px 5px;
+  border: 2px solid turquoise;
+  display: flex;
+  flex-direction: column;
+}

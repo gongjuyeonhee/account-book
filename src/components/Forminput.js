@@ -9,7 +9,7 @@ const Forminput = ({ getForminputData }) => {
     itemType: "",
     purchaseDay: null,
     memo: "",
-    reOrder: null,
+    reOrder: true,
   });
 
   const nameChangeHandler = (e) => {
@@ -33,7 +33,7 @@ const Forminput = ({ getForminputData }) => {
 
   const buttonSubmitHandler = (e) => {
     e.preventDefault();
-
+    console.log(typeof itemState.reOrder);
     getForminputData(itemState);
 
     setItemState({
@@ -42,7 +42,7 @@ const Forminput = ({ getForminputData }) => {
       itemType: "",
       purchaseDay: null,
       memo: "",
-      reOrder: null,
+      reOrder: true,
     });
   };
 
@@ -112,14 +112,15 @@ const Forminput = ({ getForminputData }) => {
         <label for="re-order">재구매 의사</label>
         <input
           type="radio"
-          name="reorder" //라디오 타입에서 name에 똑같은 이름을 부여할 경우 이 중에 하나만 선택할 수 있게됨. 이거 없으면 둘다 선택됨
+          name="reorder"
           value={true}
           onChange={reOrderChangeHandler}
+          checked
         />
         <label for="yes">yes</label>
         <input
           type="radio"
-          name="reorder" //이번 프로젝트에서 name 무조건 부여해야함.
+          name="reorder"
           value={false}
           onChange={reOrderChangeHandler}
         />
