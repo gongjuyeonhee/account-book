@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Forminput from "./components/Forminput";
 import TypeFilter from "./components/TypeFilter";
+import Expenses from "./Payments/Expenses";
 
 function App() {
   const [goods, setGoods] = useState([
@@ -34,6 +35,7 @@ function App() {
     <div className="App">
       <Forminput getForminputData={getForminputData} />
       <TypeFilter />
+      <Expenses items={goods} />
     </div>
   );
 }
