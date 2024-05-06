@@ -10,7 +10,7 @@ const ExpenseItem = (props) => {
       <p>{props.itemType}</p>
       <ExpenseDate date={props.purchaseDay} />
       <p>{props.memo}</p>
-      <p>{props.reOrder ? "강추" : "비추"}</p>
+      <p>{props.reOrder}</p>
     </div>
   );
 };

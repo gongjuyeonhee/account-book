@@ -13,7 +13,7 @@ function App() {
       itemType: "aaa",
       purchaseDay: new Date(2024, 8, 14),
       memo: "맛있어요",
-      reOrder: true,
+      reOrder: "true",
     },
   ]);
 
@@ -24,7 +24,7 @@ function App() {
         name: data.name,
         price: data.price,
         itemType: data.itemType,
-        purchaseDay: data.purchaseDay,
+        purchaseDay: new Date(data.purchaseDay),
         memo: data.memo,
         reOrder: data.reOrder,
       },

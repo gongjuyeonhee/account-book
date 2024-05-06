@@ -10,7 +10,7 @@ const Forminput = ({ getForminputData }) => {
     itemType: "",
     purchaseDay: new Date(),
     memo: "",
-    reOrder: "",
+    reOrder: true,
   });
 
   const nameChangeHandler = (e) => {
@@ -23,6 +23,17 @@ const Forminput = ({ getForminputData }) => {
 
   const typeChangeHandler = (e) => {
     setItemState((prevState) => ({ ...prevState, itemType: e.target.value }));
+  };
+
+  const memoChangeHandler = (e) => {
+    setItemState((prevState) => ({ ...prevState, memo: e.target.value }));
+  };
+
+  const reOrderChangeHandler = (e) => {
+    setItemState((prevState) => ({
+      ...prevState,
+      reOrder: e.target.value,
+    }));
   };
 
   const dayChangeHandler = (e) => {
@@ -45,16 +56,8 @@ const Forminput = ({ getForminputData }) => {
       itemType: "",
       purchaseDay: new Date(),
       memo: "",
-      reOrder: "",
+      reOrder: true,
     });
-  };
-
-  const memoChangeHandler = (e) => {
-    setItemState((prevState) => ({ ...prevState, memo: e.target.value }));
-  };
-
-  const reOrderChangeHandler = (e) => {
-    setItemState((prevState) => ({ ...prevState, reOrder: e.target.value }));
   };
 
   return (
@@ -117,6 +120,7 @@ const Forminput = ({ getForminputData }) => {
           type="radio"
           name="reorder"
           value="true"
+          checked={itemState.reOrder === "true"}
           onChange={reOrderChangeHandler}
         />
         <label for="yes">yes</label>
@@ -124,6 +128,7 @@ const Forminput = ({ getForminputData }) => {
           type="radio"
           name="reorder"
           value="false"
+          checked={itemState.reOrder === "false"}
           onChange={reOrderChangeHandler}
         />
         <label for="yes">no</label>
