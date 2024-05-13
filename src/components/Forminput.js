@@ -87,11 +87,10 @@ const Forminput = ({ getForminputData }) => {
           value={itemState.itemType}
           onChange={typeChangeHandler}
         >
-          <option value="aaa">a</option>
-          <option value="bbb">b</option>
-          <option value="ccc">c</option>
-          <option value="ddd">d</option>
-          <option value="eee">e</option>
+          <option value="1">1111</option>
+          <option value="2">2222</option>
+          <option value="3">3333</option>
+          <option value="4">4444</option>
         </select>
       </div>
       <div className="box">
