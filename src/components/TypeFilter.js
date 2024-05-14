@@ -2,8 +2,8 @@ import React from "react";
 import "./TypeFilter.css";
 
 const TypeFilter = (props) => {
-  const dropdownChangeHandler = (e) => {
-    props.onChangeFilter(e.target.value);
+  const dropdownChangeHandler = (e, selectName) => {
+    props.onChangeFilter(e.target.value, selectName);
   };
 
   return (
@@ -11,9 +11,9 @@ const TypeFilter = (props) => {
       <div>
         <label>유형필터</label>
         <select
-          name="food-type"
-          value={props.selected}
-          onChange={dropdownChangeHandler}
+          name="type"
+          value={props.selectedType}
+          onChange={(e) => dropdownChangeHandler(e, "type")}
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -22,12 +22,16 @@ const TypeFilter = (props) => {
         </select>
       </div>
       <div>
-        <select name="food-type">
-          <option value="">정렬기준</option>
-          <option value="food">food</option>
-          <option value="food">food</option>
-          <option value="food">food</option>
-          <option value="food">food</option>
+        <label>정렬필터</label>
+        <select
+          name="sort"
+          value={props.selectedSort}
+          onChange={(e) => dropdownChangeHandler(e, "sort")}
+        >
+          <option value="높은가격">높은가격</option>
+          <option value="낮은가격">낮은가격</option>
+          <option value="최신순">최신순</option>
+          <option value="오래된순">오래된순</option>
         </select>
       </div>
       <div>

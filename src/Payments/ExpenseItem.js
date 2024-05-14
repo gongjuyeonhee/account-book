@@ -5,12 +5,12 @@ import ExpenseDate from "./ExpenseDay";
 const ExpenseItem = (props) => {
   return (
     <div className="item-box">
-      <p>{props.name}</p>
-      <p>{props.price}</p>
-      <p>{props.itemType}</p>
+      <p>--{props.name}--</p>
+      <p>--{props.price}--</p>
+      <p>--{props.itemType}--</p>
       <ExpenseDate date={props.purchaseDay} />
-      <p>{props.memo}</p>
-      <p>{props.reOrder}</p>
+      <p>--{props.memo}--</p>
+      <p>--{props.reOrder}--</p>
     </div>
   );
 };
