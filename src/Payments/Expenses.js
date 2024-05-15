@@ -5,15 +5,23 @@ import TypeFilter from "../components/TypeFilter";
 
 const Expenses = (props) => {
   const [typeFilter, setTypeFilter] = useState("1");
-  const [sortFilter, setSortFilter] = useState("높은가격");
+  const [sortFilter, setSortFilter] = useState("최신순");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const handleChange = (selectedType, filterType) => {
     if (filterType === "type") {
       setTypeFilter(selectedType);
     } else if (filterType === "sort") {
       setSortFilter(selectedType);
+    } else if (filterType === "start") {
+      setStartDate(selectedType !== "" ? selectedType : null);
+    } else if (filterType === "end") {
+      setEndDate(selectedType !== "" ? selectedType : null);
     }
   };
+
+  console.log(startDate, endDate);
 
   const filteredExpense = props.items
     .slice()
@@ -29,6 +37,13 @@ const Expenses = (props) => {
         return a.purchaseDay - b.purchaseDay;
       }
       return 0;
+    })
+    .filter((item) => {
+      if (startDate && endDate) {
+        return item.purchaseDay >= startDate && item.purchaseDay <= endDate;
+      } else {
+        return true;
+      }
     });
 
   let expenseContent = <p>값이 없습니다</p>;
@@ -51,6 +66,8 @@ const Expenses = (props) => {
       <TypeFilter
         selectedType={typeFilter}
         selectedSort={sortFilter}
+        selectedstart={startDate}
+        selectedend={endDate}
         onChangeFilter={(selectedType, filterType) =>
           handleChange(selectedType, filterType)
         }

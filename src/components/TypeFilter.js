@@ -35,12 +35,20 @@ const TypeFilter = (props) => {
         </select>
       </div>
       <div>
-        <label for="date">시작 기간: </label>
-        <input type="date"></input>
+        <label for="start-date">시작 기간: </label>
+        <input
+          type="date"
+          value={props.selectedstart}
+          onChange={(e) => dropdownChangeHandler(e, "start")}
+        ></input>
       </div>
       <div>
-        <label for="date">끝 기간: </label>
-        <input type="date"></input>
+        <label for="end-date">끝 기간: </label>
+        <input
+          type="date"
+          value={props.selectedend}
+          onChange={(e) => dropdownChangeHandler(e, "end")}
+        ></input>
       </div>
     </div>
   );
